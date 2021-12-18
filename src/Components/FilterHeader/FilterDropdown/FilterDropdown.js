@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mobile } from "../../../responsive";
+import CharacteristicsDropdown from "./CharacteristicsDropdown/CharacteristicsDropdown";
 
 const FilterContainer = styled.div`
   display: flex;
@@ -49,9 +50,21 @@ const FilterDropdown = () => {
     { label: "Customer Rating", value: "rating" },
   ];
 
+  const characteristicsFilterItems = [
+    "Add-Ons",
+    "Bundles",
+    "Character",
+    "Collar",
+    "Country of Origin",
+    "Fabric",
+    "Fabric 2",
+  ];
+
   return (
     <FilterContainer>
-      Additional Filters
+      <div>
+        <CharacteristicsDropdown items={characteristicsFilterItems} />
+      </div>
       <Filter>
         <DropdownContainer>
           <Select>
