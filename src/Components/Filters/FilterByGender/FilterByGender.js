@@ -12,6 +12,7 @@ const FilterByGender = () => {
         style={{
           marginLeft: "30px",
           marginTop: "10px",
+          width: "100%",
         }}
       >
         <div

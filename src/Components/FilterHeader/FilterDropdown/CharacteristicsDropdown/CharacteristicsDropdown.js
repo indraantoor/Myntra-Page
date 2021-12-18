@@ -14,7 +14,14 @@ const CharacteristicsDropdown = ({ items }) => {
           </span>
         </div>
       ))}
-      <span style={{ marginLeft: "10px", fontSize: "14px", fontWeight: "500" }}>
+      <span
+        style={{
+          marginLeft: "10px",
+          marginRight: "10px",
+          fontSize: "14px",
+          fontWeight: "500",
+        }}
+      >
         +16 more
       </span>
     </div>

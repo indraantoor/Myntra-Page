@@ -6,7 +6,12 @@ import FilterByDiscount from "../Filters/FilterByDiscount/FilterByDiscount";
 
 const Sidebar = () => {
   return (
-    <div style={{ borderRight: "1px solid #e9e9ed" }}>
+    <div
+      style={{
+        borderRight: "1px solid #e9e9ed",
+        overflow: "hidden",
+      }}
+    >
       <FilterByGender />
       <FilterByBrand />
       <FilterByPrice />

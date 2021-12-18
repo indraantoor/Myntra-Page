@@ -4,6 +4,7 @@ const SidebarHeading = styled.h1`
   font-weight: 700;
   font-size: 14px;
   margin-left: 30px;
+  margin-right: 10px;
 `;
 
 const SidebarContainer = styled.aside`

@@ -5,15 +5,16 @@
 }
 
 .dropdownItemContainer {
+  display: flex;
   margin: 0 auto;
   margin-top: 5px;
   margin-left: 5px;
-  padding: 3px 10px 3px 10px;
   border-radius: 20px;
   color: #282c3f;
   font-size: 14px;
   font-weight: 300;
   cursor: pointer;
+  padding: 3px 10px 3px 10px;
 }
 
 .dropdownItemContainer:hover {

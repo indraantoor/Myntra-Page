@@ -1,13 +1,18 @@
 import Sidebar from "../Sidebar/Sidebar";
+import Items from "../Items/Items";
+import styled from "styled-components";
+
+const MainContainter = styled.div`
+  display: grid;
+  grid-template-columns: 20% 80%;
+`;
 
 const MainContent = () => {
   return (
-    <div style={{ display: "flex" }}>
+    <MainContainter>
       <Sidebar />
-      <div style={{ marginLeft: "20px", margin: "0 auto", marginTop: "10%" }}>
-        <h1>Main Content</h1>
-      </div>
-    </div>
+      <Items />
+    </MainContainter>
   );
 };
 

@@ -10,19 +10,18 @@ const SidebarHeading = styled.h1`
 const SidebarContainer = styled.aside`
   display: flex;
   align-items: center;
-  padding-right: 20px;
+  padding-right: 10px;
   border-bottom: 1px solid #e9e9ed;
-  width: 255px;
 `;
 
 const FilterHeaderContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 20% 80%;
   justify-content: space-between;
   margin-top: 20px;
 `;
 
 const Right = styled.div`
-  flex: 1;
   padding-bottom: 10px;
   border-bottom: 1px solid #e9e9ed;
 `;
