@@ -4,7 +4,7 @@ const BreadcrumContainer = styled.p`
   font-size: 14px;
   font-weight: 100;
   margin-left: 30px;
-  margin-top: 10px;
+  margin-top: 100px;
   color: #282c3f;
 `;
 
@@ -24,7 +24,7 @@ const ItemCountContainer = styled.span`
 
 const Breadcrum = () => {
   return (
-    <>
+    <div>
       <BreadcrumContainer>
         Home / Clothing / <CurrentPage>Shirts For Men & Women</CurrentPage>
       </BreadcrumContainer>
@@ -34,7 +34,7 @@ const Breadcrum = () => {
           <ItemCountContainer>- 80922 Items</ItemCountContainer>
         </p>
       </CurrentPageInformationContainer>
-    </>
+    </div>
   );
 };
 

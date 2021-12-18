@@ -3,6 +3,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Menu from "./Components/Menu/Menu";
 import Breadcrum from "./Components/Breadcrum/Breadcrum";
 import FilterHeader from "./Components/FilterHeader/FilterHeader";
+import MainContent from "./Components/MainContent/MainContent";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Menu />
       <Breadcrum />
       <FilterHeader />
+      <MainContent />
     </>
   );
 }

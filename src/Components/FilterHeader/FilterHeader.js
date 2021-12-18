@@ -9,16 +9,16 @@ const SidebarHeading = styled.h1`
 
 const SidebarContainer = styled.aside`
   display: flex;
-  justify-content: center;
   align-items: center;
   padding-right: 20px;
   border-bottom: 1px solid #e9e9ed;
+  width: 255px;
 `;
 
 const FilterHeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 20px;
 `;
 
 const Right = styled.div`
