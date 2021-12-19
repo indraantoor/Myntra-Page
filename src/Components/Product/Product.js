@@ -10,7 +10,7 @@ const ProductContainer = styled.div`
 const ItemsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 21rem);
-  grid-auto-rows: 360px;
+  grid-auto-rows: 460px;
   margin-top: 20px;
   grid-column-gap: 20px;
   margin-left: 30px;
@@ -22,7 +22,7 @@ const ItemContainer = styled.div``;
 const ImgContainer = styled.div`
   background-color: red;
   height: 95%;
-  cursor: pointer;
+  cursor: zoom-in;
 `;
 
 const ProductInfoContainer = styled.div`
@@ -65,6 +65,7 @@ const PricingInfoContainer = styled.div`
 const SellingPrice = styled.h1`
   font-size: 24px;
   font-weight: 500;
+  color: black;
 `;
 
 const OriginalPrice = styled.h1`
@@ -83,25 +84,174 @@ const Discount = styled.h1`
   color: #ff905a;
 `;
 
+const TaxText = styled.div`
+  color: #03a685;
+  font-weight: 500;
+  font-size: 14px;
+`;
+
+const SizeContainer = styled.div`
+  margin-top: 30px;
+`;
+
+const SizeHeadingContainer = styled.div`
+  width: 15rem;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const SizeHeading = styled.h1`
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+`;
+
+const SizeChartHeading = styled.h1`
+  font-size: 16px;
+  font-weight: 500;
+  color: #ff3e6c;
+  cursor: pointer;
+`;
+
+const SizeButtonContainer = styled.div`
+  display: flex;
+  width: 20rem;
+`;
+
+const Size = styled.div`
+  margin-top: 10px;
+  margin-left: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #bfc0c6;
+  border-radius: 50px;
+  cursor: pointer;
+  color: #282c3f;
+  width: 50px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 500;
+
+  &:hover {
+    border: 1px solid #ff3f6c;
+  }
+`;
+
+const PurchaseButtonsContainer = styled.div`
+  margin-top: 30px;
+  width: 90%;
+  display: flex;
+  padding-bottom: 10px;
+`;
+
+const AddToBag = styled.button`
+  padding: 15px;
+  width: 60%;
+  border: 1px solid #ff3e6c;
+  background-color: #ff3e6c;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 4px;
+  &:hover {
+    background-color: #ff527b;
+  }
+`;
+const Wishlist = styled.button`
+  margin-left: 20px;
+  flex: 1;
+  border: 1px solid #d4d5d9;
+  letter-spacing: 0.4px;
+  color: #282c3f;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: white;
+  &:hover {
+    border: 1px solid #282c3f;
+  }
+`;
+
+const SellerInfoContainer = styled.div``;
+
+const SellerName = styled.div``;
+
+const SellerCount = styled.div`
+  font-size: 14px;
+  color: #ff3f6c;
+  font-weight: 500;
+  cursor: pointer;
+`;
+
 const Product = () => {
   return (
     <ProductContainer>
       <div>
         <ItemsContainer>
           <ItemContainer>
-            <ImgContainer>Hello</ImgContainer>
+            <ImgContainer>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "yellow",
+                  backgroundImage: `url("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                  backgroundSize: "cover",
+                }}
+              ></div>
+            </ImgContainer>
           </ItemContainer>
           <ItemContainer>
-            <ImgContainer>Hello</ImgContainer>
+            <ImgContainer>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "yellow",
+                  backgroundImage: `url("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                  backgroundSize: "cover",
+                }}
+              ></div>
+            </ImgContainer>
           </ItemContainer>
           <ItemContainer>
-            <ImgContainer>Hello</ImgContainer>
+            <ImgContainer>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "yellow",
+                  backgroundImage: `url("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                  backgroundSize: "cover",
+                }}
+              ></div>
+            </ImgContainer>
           </ItemContainer>
           <ItemContainer>
-            <ImgContainer>Hello</ImgContainer>
+            <ImgContainer>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "yellow",
+                  backgroundImage: `url("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                  backgroundSize: "cover",
+                }}
+              ></div>
+            </ImgContainer>
           </ItemContainer>
           <ItemContainer>
-            <ImgContainer>Hello</ImgContainer>
+            <ImgContainer>
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "yellow",
+                  backgroundImage: `url("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                  backgroundSize: "cover",
+                }}
+              ></div>
+            </ImgContainer>
           </ItemContainer>
         </ItemsContainer>
       </div>
@@ -125,7 +275,56 @@ const Product = () => {
             <OriginalPrice>Rs. 1499</OriginalPrice>
             <Discount>( 45% OFF )</Discount>
           </PricingInfoContainer>
+          <TaxText>
+            <strong>inclusive of all taxes</strong>
+          </TaxText>
+          <SizeContainer>
+            <SizeHeadingContainer>
+              <SizeHeading>
+                <strong>SELECT SIZE</strong>
+              </SizeHeading>
+              <SizeChartHeading>
+                <strong>SIZE CHART</strong>
+              </SizeChartHeading>
+            </SizeHeadingContainer>
+            <SizeButtonContainer>
+              <Size>S</Size>
+              <Size>M</Size>
+              <Size>L</Size>
+              <Size>XL</Size>
+            </SizeButtonContainer>
+          </SizeContainer>
         </ProductInfoContainer>
+        <PurchaseButtonsContainer>
+          <AddToBag>
+            <i class="bi bi-handbag-fill" style={{ paddingRight: "10px" }}></i>
+            ADD TO BAG
+          </AddToBag>
+          <Wishlist>
+            <i class="bi bi-heart" style={{ paddingRight: "10px" }}></i>
+            WISHLIST
+          </Wishlist>
+        </PurchaseButtonsContainer>
+        <hr />
+        <SellerInfoContainer>
+          <PricingInfoContainer>
+            <SellingPrice style={{ fontSize: "16px" }}>
+              <strong>Rs. 824</strong>
+            </SellingPrice>
+            <OriginalPrice style={{ fontSize: "16px" }}>Rs. 1499</OriginalPrice>
+            <Discount style={{ fontSize: "16px" }}>( 45% OFF )</Discount>
+          </PricingInfoContainer>
+          <SellerName>
+            Seller:{" "}
+            <strong
+              style={{ color: "#ff3e6c", fontWeight: "500", cursor: "pointer" }}
+            >
+              Indraan Bai
+            </strong>
+            <SellerCount>1 more seller available</SellerCount>
+          </SellerName>
+        </SellerInfoContainer>
+        <hr />
       </div>
     </ProductContainer>
   );
