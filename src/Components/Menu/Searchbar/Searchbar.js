@@ -31,13 +31,12 @@ const Input = styled.input`
   }
 `;
 
-const Searchbar = ({ placeholder }) => {
+const Searchbar = ({ placeholder, setSearchText }) => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("search", search);
-    console.log(localStorage.getItem("search"));
-  }, [search]);
+    setSearchText(search);
+  }, [search, setSearchText]);
 
   return (
     <SearchContainer>

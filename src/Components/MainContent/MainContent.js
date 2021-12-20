@@ -8,7 +8,7 @@ const MainContainter = styled.div`
   grid-template-columns: 20% 80%;
 `;
 
-const MainContent = ({ sort }) => {
+const MainContent = ({ sort, searchText }) => {
   const [sidebarFilters, setSidebarFilters] = useState({
     gender: "",
     discount: 0,
@@ -31,6 +31,7 @@ const MainContent = ({ sort }) => {
         sidebarFilters={sidebarFilters}
         sidebarFiltersApplied={sidebarFiltersApplied}
         sort={sort}
+        searchText={searchText}
       />
     </MainContainter>
   );

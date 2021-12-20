@@ -49,7 +49,7 @@ const MenuItem = styled.div`
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
-const Menu = () => {
+const Menu = ({ setSearchText }) => {
   const leftNavItems = ["MEN", "WOMEN", "KIDS", "HOME & LIVING", "BEAUTY"];
   const rightNavItems = [
     { label: "Profile", icon: "bi bi-person" },
@@ -84,7 +84,7 @@ const Menu = () => {
           </Left>
 
           <Right>
-            <Searchbar />
+            <Searchbar setSearchText={setSearchText} />
             {rightNavItems.map((navItem) => (
               <MenuItem>
                 <RightNavItemContainer>

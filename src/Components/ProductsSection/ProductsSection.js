@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import FilterHeader from "../FilterHeader/FilterHeader";
 import MainContent from "../MainContent/MainContent";
 
-const ProductsSection = () => {
+const ProductsSection = ({ searchText }) => {
   const [sortedBy, setSortedBy] = useState("");
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const ProductsSection = () => {
   return (
     <>
       <FilterHeader setSortedBy={setSortedBy} />
-      <MainContent sort={sortedBy} />
+      <MainContent sort={sortedBy} searchText={searchText} />
     </>
   );
 };

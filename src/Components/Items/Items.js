@@ -71,9 +71,10 @@ const Discount = styled.h1`
   color: #ff3f6c;
 `;
 
-const Items = ({ sidebarFilters, sidebarFiltersApplied, sort }) => {
+const Items = ({ sidebarFilters, sidebarFiltersApplied, sort, searchText }) => {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
+  const [isUsingSearch, setIsUsingSearch] = useState(false);
 
   useEffect(() => {
     setProducts(items);
@@ -133,9 +134,33 @@ const Items = ({ sidebarFilters, sidebarFiltersApplied, sort }) => {
     }
   }, [products, sort, sidebarFiltersApplied]);
 
+  useEffect(() => {
+    if (searchText.length > 0) {
+      setIsUsingSearch(true);
+    } else {
+      setIsUsingSearch(false);
+    }
+  }, [searchText, isUsingSearch]);
+
+  useEffect(() => {
+    if (isUsingSearch) {
+      const searchFiltered = products.filter((product) => {
+        if (searchText === "") {
+          return product;
+        } else if (
+          product.brandName.toLowerCase().includes(searchText.toLowerCase()) ||
+          product.itemInfo.toLowerCase().includes(searchText.toLowerCase())
+        ) {
+          return product;
+        }
+      });
+      setFilterProducts(searchFiltered);
+    }
+  }, [isUsingSearch, products, searchText]);
+
   return (
     <ItemsContainer>
-      {sidebarFiltersApplied
+      {sidebarFiltersApplied || isUsingSearch
         ? filterProducts.map((item) => (
             <ItemContainer>
               <ImgContainer>Hello</ImgContainer>
