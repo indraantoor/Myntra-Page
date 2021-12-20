@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { items } from "../../data";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { mobile } from "../../responsive";
 
 const ItemsContainer = styled.div`
   display: grid;
@@ -13,6 +14,7 @@ const ItemsContainer = styled.div`
   margin-top: 20px;
   margin-left: 30px;
   margin-right: 30px;
+  ${mobile({ justifyContent: "space-around", width: "94%" })}
 `;
 
 const ItemContainer = styled.div`

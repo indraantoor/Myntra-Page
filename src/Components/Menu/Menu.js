@@ -2,6 +2,7 @@ import myntraLogo from "../../Assets/myntraLogo.png";
 import Searchbar from "./Searchbar/Searchbar";
 import styled from "styled-components";
 import { mobile } from "../../responsive";
+import { Link } from "react-router-dom";
 
 const RightNavItemContainer = styled.div`
   display: flex;
@@ -70,11 +71,13 @@ const Menu = ({ setSearchText }) => {
       <Container>
         <Wrapper>
           <Left>
-            <img
-              src={myntraLogo}
-              alt="Myntra Logo"
-              style={{ marginLeft: "15px" }}
-            />
+            <Link to={"/"} style={{ textDecoration: "none" }}>
+              <img
+                src={myntraLogo}
+                alt="Myntra Logo"
+                style={{ marginLeft: "15px" }}
+              />
+            </Link>
             {leftNavItems.map((navItem) => (
               <MenuItem>{navItem}</MenuItem>
             ))}
