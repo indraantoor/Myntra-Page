@@ -177,7 +177,16 @@ const Items = ({ sidebarFilters, sidebarFiltersApplied, sort, searchText }) => {
                 to={"/product"}
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <ImgContainer>Hello</ImgContainer>
+                <ImgContainer>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      backgroundImage: `url(${item.thumbnailUrl})`,
+                      backgroundSize: "cover",
+                    }}
+                  ></div>
+                </ImgContainer>
                 <InformationContainer>
                   <BrandName>{item.brandName}</BrandName>
                   <ItemInfo>{item.itemInfo}</ItemInfo>
