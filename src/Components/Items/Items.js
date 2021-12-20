@@ -75,6 +75,7 @@ const Items = ({ sidebarFilters, sidebarFiltersApplied, sort, searchText }) => {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
   const [isUsingSearch, setIsUsingSearch] = useState(false);
+  const [productId, setProductId] = useState(0);
 
   useEffect(() => {
     setProducts(items);
@@ -158,6 +159,11 @@ const Items = ({ sidebarFilters, sidebarFiltersApplied, sort, searchText }) => {
     }
   }, [isUsingSearch, products, searchText]);
 
+  const handleItemClick = (item, e) => {
+    localStorage.setItem("product", JSON.stringify(item));
+    console.log(item);
+  };
+
   return (
     <ItemsContainer>
       {sidebarFiltersApplied || isUsingSearch
@@ -176,8 +182,10 @@ const Items = ({ sidebarFilters, sidebarFiltersApplied, sort, searchText }) => {
             </ItemContainer>
           ))
         : products.map((item) => (
-            <ItemContainer>
-              <ImgContainer>Hello</ImgContainer>
+            <ItemContainer key={item.id}>
+              <ImgContainer onClick={(e) => handleItemClick(item, e)}>
+                Hello
+              </ImgContainer>
               <InformationContainer>
                 <BrandName>{item.brandName}</BrandName>
                 <ItemInfo>{item.itemInfo}</ItemInfo>

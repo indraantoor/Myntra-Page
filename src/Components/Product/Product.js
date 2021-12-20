@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import data from "../../data";
+import { useEffect, useState } from "react";
 
 const ProductContainer = styled.div`
   display: grid;
@@ -213,6 +215,7 @@ const PincodeButton = styled.button`
   margin-left: 10px;
   border: none;
   background: transparent;
+  font-weight: 500;
 `;
 
 const PincodeText = styled.div`
@@ -234,6 +237,23 @@ const DeliveryOptionsFeaturesText = styled.div`
 `;
 
 const Product = () => {
+  const [sellingItem, setSellingItem] = useState({});
+  const [pinCode, setPincode] = useState("");
+  const [check, setCheck] = useState(false);
+
+  useEffect(() => {
+    setSellingItem(JSON.parse(localStorage.getItem("product")));
+    console.log(JSON.parse(localStorage.getItem("product")));
+  }, []);
+
+  useEffect(() => {
+    if (pinCode.length >= 6) {
+      setCheck(true);
+    } else {
+      setCheck(false);
+    }
+  }, [pinCode]);
+
   return (
     <ProductContainer>
       <div>
@@ -302,8 +322,8 @@ const Product = () => {
       </div>
       <div style={{ backgroundColor: "white" }}>
         <ProductInfoContainer>
-          <BrandName>Roadster</BrandName>
-          <ProductTitle>Men Blue Printed Casual Shirt</ProductTitle>
+          <BrandName>{sellingItem.brandName}</BrandName>
+          <ProductTitle>{sellingItem.itemInfo}</ProductTitle>
           <RatingContainer>
             <span style={{ fontWeight: "500", paddingLeft: "10px" }}>4</span>{" "}
             <i
@@ -315,10 +335,10 @@ const Product = () => {
           <hr />
           <PricingInfoContainer>
             <SellingPrice>
-              <strong>Rs. 824</strong>
+              <strong>Rs. {sellingItem.sellingPrice}</strong>
             </SellingPrice>
-            <OriginalPrice>Rs. 1499</OriginalPrice>
-            <Discount>( 45% OFF )</Discount>
+            <OriginalPrice>Rs. {sellingItem.originalPrice}</OriginalPrice>
+            <Discount>( {sellingItem.discount}% OFF )</Discount>
           </PricingInfoContainer>
           <TaxText>
             <strong>inclusive of all taxes</strong>
@@ -356,17 +376,21 @@ const Product = () => {
         <SellerInfoContainer>
           <PricingInfoContainer>
             <SellingPrice style={{ fontSize: "16px" }}>
-              <strong>Rs. 824</strong>
+              <strong>Rs. {sellingItem.sellingPrice}</strong>
             </SellingPrice>
-            <OriginalPrice style={{ fontSize: "16px" }}>Rs. 1499</OriginalPrice>
-            <Discount style={{ fontSize: "16px" }}>( 45% OFF )</Discount>
+            <OriginalPrice style={{ fontSize: "16px" }}>
+              Rs. {sellingItem.originalPrice}
+            </OriginalPrice>
+            <Discount style={{ fontSize: "16px" }}>
+              ( {sellingItem.discount}% OFF )
+            </Discount>
           </PricingInfoContainer>
           <SellerName>
             Seller:{" "}
             <strong
               style={{ color: "#ff3e6c", fontWeight: "500", cursor: "pointer" }}
             >
-              Indraan Bai
+              Indraan
             </strong>
             <SellerCount>1 more seller available</SellerCount>
           </SellerName>
@@ -378,9 +402,16 @@ const Product = () => {
             <PincodeInput
               type="text"
               placeholder="Enter a PIN code"
+              onChange={(e) => setPincode(e.target.value)}
               maxLength={6}
             ></PincodeInput>
-            <PincodeButton disabled>Check</PincodeButton>
+            {check ? (
+              <PincodeButton style={{ color: " #ff3e6c", fontWeight: "500" }}>
+                Check
+              </PincodeButton>
+            ) : (
+              <PincodeButton disabled>Check</PincodeButton>
+            )}
           </Pincode>
           <PincodeText>
             Please enter PIN code to check delivery time & Pay on Delivery
