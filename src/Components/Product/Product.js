@@ -205,6 +205,7 @@ const Pincode = styled.div`
   border: 1px solid #d4d5d9;
   border-radius: 4px;
   color: #282c3f;
+  ${mobile({ width: "70%" })}
 `;
 
 const PincodeInput = styled.input`
