@@ -243,10 +243,12 @@ const Product = ({ setSearchText, searchText }) => {
   const [sellingItem, setSellingItem] = useState({});
   const [pinCode, setPincode] = useState("");
   const [check, setCheck] = useState(false);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     setSellingItem(JSON.parse(localStorage.getItem("product")));
     console.log(JSON.parse(localStorage.getItem("product")));
+    setImages(JSON.parse(localStorage.getItem("product")).images);
   }, []);
 
   useEffect(() => {
@@ -271,66 +273,20 @@ const Product = ({ setSearchText, searchText }) => {
       <ProductContainer>
         <div>
           <ItemsContainer>
-            <ItemContainer>
-              <ImgContainer>
-                <div
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-              </ImgContainer>
-            </ItemContainer>
-            <ItemContainer>
-              <ImgContainer>
-                <div
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737697-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-2.jpg")`,
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-              </ImgContainer>
-            </ItemContainer>
-            <ItemContainer>
-              <ImgContainer>
-                <div
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737673-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-3.jpg")`,
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-              </ImgContainer>
-            </ItemContainer>
-            <ItemContainer>
-              <ImgContainer>
-                <div
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737656-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-4.jpg")`,
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-              </ImgContainer>
-            </ItemContainer>
-            <ItemContainer>
-              <ImgContainer>
-                <div
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737616-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-5.jpg")`,
-                    backgroundSize: "cover",
-                  }}
-                ></div>
-              </ImgContainer>
-            </ItemContainer>
+            {images.map((img) => (
+              <ItemContainer>
+                <ImgContainer>
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      backgroundImage: `url(${img})`,
+                      backgroundSize: "cover",
+                    }}
+                  ></div>
+                </ImgContainer>
+              </ItemContainer>
+            ))}
           </ItemsContainer>
         </div>
         <div style={{ backgroundColor: "white" }}>
