@@ -22,11 +22,16 @@ const ItemCountContainer = styled.span`
   font-size: 18px;
 `;
 
-const Breadcrum = () => {
+const Breadcrum = ({ currentUrl }) => {
   return (
     <div>
       <BreadcrumContainer>
-        Home / Clothing / <CurrentPage>Shirts For Men & Women</CurrentPage>
+        Home / Clothing /{" "}
+        {currentUrl ? (
+          <CurrentPage>Shirts For Men & Women / {currentUrl}</CurrentPage>
+        ) : (
+          <CurrentPage>Shirts For Men & Women</CurrentPage>
+        )}
       </BreadcrumContainer>
       <CurrentPageInformationContainer>
         <p>

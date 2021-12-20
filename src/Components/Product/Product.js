@@ -269,7 +269,7 @@ const Product = ({ setSearchText, searchText }) => {
   return (
     <>
       <Menu setSearchText={setSearchText} />
-      <Breadcrum />
+      <Breadcrum currentUrl={sellingItem.brandName} />
       <ProductContainer>
         <div>
           <ItemsContainer>
