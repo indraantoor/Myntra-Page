@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import data from "../../data";
+import Modal from "react-modal";
 import { useEffect, useState } from "react";
+import Menu from "../Menu/Menu";
+import Breadcrum from "../Breadcrum/Breadcrum";
 
 const ProductContainer = styled.div`
   display: grid;
@@ -236,7 +239,7 @@ const DeliveryOptionsFeaturesText = styled.div`
   font-size: 16px;
 `;
 
-const Product = () => {
+const Product = ({ setSearchText, searchText }) => {
   const [sellingItem, setSellingItem] = useState({});
   const [pinCode, setPincode] = useState("");
   const [check, setCheck] = useState(false);
@@ -254,186 +257,204 @@ const Product = () => {
     }
   }, [pinCode]);
 
+  const AddToCart = () => {
+    var a = [];
+    a = JSON.parse(localStorage.getItem("cartItems")) || [];
+    a.push(sellingItem);
+    localStorage.setItem("cartItems", JSON.stringify(a));
+  };
+
   return (
-    <ProductContainer>
-      <div>
-        <ItemsContainer>
-          <ItemContainer>
-            <ImgContainer>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
-                  backgroundSize: "cover",
-                }}
-              ></div>
-            </ImgContainer>
-          </ItemContainer>
-          <ItemContainer>
-            <ImgContainer>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737697-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-2.jpg")`,
-                  backgroundSize: "cover",
-                }}
-              ></div>
-            </ImgContainer>
-          </ItemContainer>
-          <ItemContainer>
-            <ImgContainer>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737673-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-3.jpg")`,
-                  backgroundSize: "cover",
-                }}
-              ></div>
-            </ImgContainer>
-          </ItemContainer>
-          <ItemContainer>
-            <ImgContainer>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737656-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-4.jpg")`,
-                  backgroundSize: "cover",
-                }}
-              ></div>
-            </ImgContainer>
-          </ItemContainer>
-          <ItemContainer>
-            <ImgContainer>
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737616-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-5.jpg")`,
-                  backgroundSize: "cover",
-                }}
-              ></div>
-            </ImgContainer>
-          </ItemContainer>
-        </ItemsContainer>
-      </div>
-      <div style={{ backgroundColor: "white" }}>
-        <ProductInfoContainer>
-          <BrandName>{sellingItem.brandName}</BrandName>
-          <ProductTitle>{sellingItem.itemInfo}</ProductTitle>
-          <RatingContainer>
-            <span style={{ fontWeight: "500", paddingLeft: "10px" }}>4</span>{" "}
-            <i
-              class="bi bi-star-fill"
-              style={{ color: "#03a685", fontSize: "12px" }}
-            ></i>{" "}
-            | 17.3k Ratings
-          </RatingContainer>
+    <>
+      <Menu setSearchText={setSearchText} />
+      <Breadcrum />
+      <ProductContainer>
+        <div>
+          <ItemsContainer>
+            <ItemContainer>
+              <ImgContainer>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                    backgroundSize: "cover",
+                  }}
+                ></div>
+              </ImgContainer>
+            </ItemContainer>
+            <ItemContainer>
+              <ImgContainer>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737697-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-2.jpg")`,
+                    backgroundSize: "cover",
+                  }}
+                ></div>
+              </ImgContainer>
+            </ItemContainer>
+            <ItemContainer>
+              <ImgContainer>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737673-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-3.jpg")`,
+                    backgroundSize: "cover",
+                  }}
+                ></div>
+              </ImgContainer>
+            </ItemContainer>
+            <ItemContainer>
+              <ImgContainer>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737656-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-4.jpg")`,
+                    backgroundSize: "cover",
+                  }}
+                ></div>
+              </ImgContainer>
+            </ItemContainer>
+            <ItemContainer>
+              <ImgContainer>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737616-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-5.jpg")`,
+                    backgroundSize: "cover",
+                  }}
+                ></div>
+              </ImgContainer>
+            </ItemContainer>
+          </ItemsContainer>
+        </div>
+        <div style={{ backgroundColor: "white" }}>
+          <ProductInfoContainer>
+            <BrandName>{sellingItem.brandName}</BrandName>
+            <ProductTitle>{sellingItem.itemInfo}</ProductTitle>
+            <RatingContainer>
+              <span style={{ fontWeight: "500", paddingLeft: "10px" }}>4</span>{" "}
+              <i
+                class="bi bi-star-fill"
+                style={{ color: "#03a685", fontSize: "12px" }}
+              ></i>{" "}
+              | 17.3k Ratings
+            </RatingContainer>
+            <hr />
+            <PricingInfoContainer>
+              <SellingPrice>
+                <strong>Rs. {sellingItem.sellingPrice}</strong>
+              </SellingPrice>
+              <OriginalPrice>Rs. {sellingItem.originalPrice}</OriginalPrice>
+              <Discount>( {sellingItem.discount}% OFF )</Discount>
+            </PricingInfoContainer>
+            <TaxText>
+              <strong>inclusive of all taxes</strong>
+            </TaxText>
+            <SizeContainer>
+              <SizeHeadingContainer>
+                <SizeHeading>
+                  <strong>SELECT SIZE</strong>
+                </SizeHeading>
+                <SizeChartHeading>
+                  <strong>
+                    SIZE CHART <i class="bi bi-chevron-compact-right"></i>
+                  </strong>
+                </SizeChartHeading>
+              </SizeHeadingContainer>
+              <SizeButtonContainer>
+                <Size>S</Size>
+                <Size>M</Size>
+                <Size>L</Size>
+                <Size>XL</Size>
+              </SizeButtonContainer>
+            </SizeContainer>
+          </ProductInfoContainer>
+          <PurchaseButtonsContainer>
+            <AddToBag onClick={(e) => AddToCart()}>
+              <i
+                class="bi bi-handbag-fill"
+                style={{ paddingRight: "10px" }}
+              ></i>
+              ADD TO BAG
+            </AddToBag>
+            <Wishlist>
+              <i class="bi bi-heart" style={{ paddingRight: "10px" }}></i>
+              WISHLIST
+            </Wishlist>
+          </PurchaseButtonsContainer>
           <hr />
-          <PricingInfoContainer>
-            <SellingPrice>
-              <strong>Rs. {sellingItem.sellingPrice}</strong>
-            </SellingPrice>
-            <OriginalPrice>Rs. {sellingItem.originalPrice}</OriginalPrice>
-            <Discount>( {sellingItem.discount}% OFF )</Discount>
-          </PricingInfoContainer>
-          <TaxText>
-            <strong>inclusive of all taxes</strong>
-          </TaxText>
-          <SizeContainer>
-            <SizeHeadingContainer>
-              <SizeHeading>
-                <strong>SELECT SIZE</strong>
-              </SizeHeading>
-              <SizeChartHeading>
-                <strong>
-                  SIZE CHART <i class="bi bi-chevron-compact-right"></i>
-                </strong>
-              </SizeChartHeading>
-            </SizeHeadingContainer>
-            <SizeButtonContainer>
-              <Size>S</Size>
-              <Size>M</Size>
-              <Size>L</Size>
-              <Size>XL</Size>
-            </SizeButtonContainer>
-          </SizeContainer>
-        </ProductInfoContainer>
-        <PurchaseButtonsContainer>
-          <AddToBag>
-            <i class="bi bi-handbag-fill" style={{ paddingRight: "10px" }}></i>
-            ADD TO BAG
-          </AddToBag>
-          <Wishlist>
-            <i class="bi bi-heart" style={{ paddingRight: "10px" }}></i>
-            WISHLIST
-          </Wishlist>
-        </PurchaseButtonsContainer>
-        <hr />
-        <SellerInfoContainer>
-          <PricingInfoContainer>
-            <SellingPrice style={{ fontSize: "16px" }}>
-              <strong>Rs. {sellingItem.sellingPrice}</strong>
-            </SellingPrice>
-            <OriginalPrice style={{ fontSize: "16px" }}>
-              Rs. {sellingItem.originalPrice}
-            </OriginalPrice>
-            <Discount style={{ fontSize: "16px" }}>
-              ( {sellingItem.discount}% OFF )
-            </Discount>
-          </PricingInfoContainer>
-          <SellerName>
-            Seller:{" "}
-            <strong
-              style={{ color: "#ff3e6c", fontWeight: "500", cursor: "pointer" }}
-            >
-              Indraan
-            </strong>
-            <SellerCount>1 more seller available</SellerCount>
-          </SellerName>
-        </SellerInfoContainer>
-        <hr />
-        <DeliveryOptionContainer>
-          <DeliveryHeading>DELIVERY OPTIONS</DeliveryHeading>
-          <Pincode>
-            <PincodeInput
-              type="text"
-              placeholder="Enter a PIN code"
-              onChange={(e) => setPincode(e.target.value)}
-              maxLength={6}
-            ></PincodeInput>
-            {check ? (
-              <PincodeButton style={{ color: " #ff3e6c", fontWeight: "500" }}>
-                Check
-              </PincodeButton>
-            ) : (
-              <PincodeButton disabled>Check</PincodeButton>
-            )}
-          </Pincode>
-          <PincodeText>
-            Please enter PIN code to check delivery time & Pay on Delivery
-            Availability
-          </PincodeText>
-          <DeliveryOptionsFeaturesContainer>
-            <DeliveryOptionsFeaturesText>
-              100% Original Products
-            </DeliveryOptionsFeaturesText>
-            <DeliveryOptionsFeaturesText>
-              Pay on delivery might be available
-            </DeliveryOptionsFeaturesText>
-            <DeliveryOptionsFeaturesText>
-              Easy 30 days returns and exchanges
-            </DeliveryOptionsFeaturesText>
-            <DeliveryOptionsFeaturesText>
-              Try & Buy might be available
-            </DeliveryOptionsFeaturesText>
-          </DeliveryOptionsFeaturesContainer>
-        </DeliveryOptionContainer>
-      </div>
-    </ProductContainer>
+          <SellerInfoContainer>
+            <PricingInfoContainer>
+              <SellingPrice style={{ fontSize: "16px" }}>
+                <strong>Rs. {sellingItem.sellingPrice}</strong>
+              </SellingPrice>
+              <OriginalPrice style={{ fontSize: "16px" }}>
+                Rs. {sellingItem.originalPrice}
+              </OriginalPrice>
+              <Discount style={{ fontSize: "16px" }}>
+                ( {sellingItem.discount}% OFF )
+              </Discount>
+            </PricingInfoContainer>
+            <SellerName>
+              Seller:{" "}
+              <strong
+                style={{
+                  color: "#ff3e6c",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+              >
+                Indraan
+              </strong>
+              <SellerCount>1 more seller available</SellerCount>
+            </SellerName>
+          </SellerInfoContainer>
+          <hr />
+          <DeliveryOptionContainer>
+            <DeliveryHeading>DELIVERY OPTIONS</DeliveryHeading>
+            <Pincode>
+              <PincodeInput
+                type="text"
+                placeholder="Enter a PIN code"
+                onChange={(e) => setPincode(e.target.value)}
+                maxLength={6}
+              ></PincodeInput>
+              {check ? (
+                <PincodeButton style={{ color: " #ff3e6c", fontWeight: "500" }}>
+                  Check
+                </PincodeButton>
+              ) : (
+                <PincodeButton disabled>Check</PincodeButton>
+              )}
+            </Pincode>
+            <PincodeText>
+              Please enter PIN code to check delivery time & Pay on Delivery
+              Availability
+            </PincodeText>
+            <DeliveryOptionsFeaturesContainer>
+              <DeliveryOptionsFeaturesText>
+                100% Original Products
+              </DeliveryOptionsFeaturesText>
+              <DeliveryOptionsFeaturesText>
+                Pay on delivery might be available
+              </DeliveryOptionsFeaturesText>
+              <DeliveryOptionsFeaturesText>
+                Easy 30 days returns and exchanges
+              </DeliveryOptionsFeaturesText>
+              <DeliveryOptionsFeaturesText>
+                Try & Buy might be available
+              </DeliveryOptionsFeaturesText>
+            </DeliveryOptionsFeaturesContainer>
+          </DeliveryOptionContainer>
+        </div>
+      </ProductContainer>
+    </>
   );
 };
 

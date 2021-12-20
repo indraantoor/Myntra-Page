@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { items } from "../../data";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ItemsContainer = styled.div`
   display: grid;
@@ -168,33 +169,47 @@ const Items = ({ sidebarFilters, sidebarFiltersApplied, sort, searchText }) => {
     <ItemsContainer>
       {sidebarFiltersApplied || isUsingSearch
         ? filterProducts.map((item) => (
-            <ItemContainer>
-              <ImgContainer>Hello</ImgContainer>
-              <InformationContainer>
-                <BrandName>{item.brandName}</BrandName>
-                <ItemInfo>{item.itemInfo}</ItemInfo>
-                <PricingInfoContainer>
-                  <SellingPrice>Rs. {item.sellingPrice}</SellingPrice>
-                  <OriginalPrice>Rs. {item.originalPrice}</OriginalPrice>
-                  <Discount>( {item.discount}% OFF )</Discount>
-                </PricingInfoContainer>
-              </InformationContainer>
+            <ItemContainer
+              key={item.id}
+              onClick={(e) => handleItemClick(item, e)}
+            >
+              <Link
+                to={"/product"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <ImgContainer>Hello</ImgContainer>
+                <InformationContainer>
+                  <BrandName>{item.brandName}</BrandName>
+                  <ItemInfo>{item.itemInfo}</ItemInfo>
+                  <PricingInfoContainer>
+                    <SellingPrice>Rs. {item.sellingPrice}</SellingPrice>
+                    <OriginalPrice>Rs. {item.originalPrice}</OriginalPrice>
+                    <Discount>( {item.discount}% OFF )</Discount>
+                  </PricingInfoContainer>
+                </InformationContainer>
+              </Link>
             </ItemContainer>
           ))
         : products.map((item) => (
-            <ItemContainer key={item.id}>
-              <ImgContainer onClick={(e) => handleItemClick(item, e)}>
-                Hello
-              </ImgContainer>
-              <InformationContainer>
-                <BrandName>{item.brandName}</BrandName>
-                <ItemInfo>{item.itemInfo}</ItemInfo>
-                <PricingInfoContainer>
-                  <SellingPrice>Rs. {item.sellingPrice}</SellingPrice>
-                  <OriginalPrice>Rs. {item.originalPrice}</OriginalPrice>
-                  <Discount>( {item.discount}% OFF )</Discount>
-                </PricingInfoContainer>
-              </InformationContainer>
+            <ItemContainer
+              key={item.id}
+              onClick={(e) => handleItemClick(item, e)}
+            >
+              <Link
+                to={"/product"}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <ImgContainer>Hello</ImgContainer>
+                <InformationContainer>
+                  <BrandName>{item.brandName}</BrandName>
+                  <ItemInfo>{item.itemInfo}</ItemInfo>
+                  <PricingInfoContainer>
+                    <SellingPrice>Rs. {item.sellingPrice}</SellingPrice>
+                    <OriginalPrice>Rs. {item.originalPrice}</OriginalPrice>
+                    <Discount>( {item.discount}% OFF )</Discount>
+                  </PricingInfoContainer>
+                </InformationContainer>
+              </Link>
             </ItemContainer>
           ))}
     </ItemsContainer>

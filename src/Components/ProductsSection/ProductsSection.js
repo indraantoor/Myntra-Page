@@ -6,8 +6,11 @@ const ProductsSection = ({ searchText }) => {
   const [sortedBy, setSortedBy] = useState("");
 
   useEffect(() => {
-    console.log(sortedBy);
-  });
+    var a = [];
+    a.push(JSON.parse(localStorage.getItem("cartItems")));
+    localStorage.setItem("cartItems", JSON.stringify(a));
+  }, []);
+
   return (
     <>
       <FilterHeader setSortedBy={setSortedBy} />
