@@ -239,6 +239,26 @@ const DeliveryOptionsFeaturesText = styled.div`
   font-size: 16px;
 `;
 
+const BestOffersContainer = styled.div`
+  margin-top: 30px;
+  color: #282c3f;
+  padding-bottom: 10px;
+`;
+
+const BestOffersHeading = styled.h1`
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 8px;
+`;
+
+const ViewProducts = styled.div`
+  color: #ff3f6c;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 4px;
+`;
+
 const Product = ({ setSearchText, searchText }) => {
   const [sellingItem, setSellingItem] = useState({});
   const [pinCode, setPincode] = useState("");
@@ -408,6 +428,114 @@ const Product = ({ setSearchText, searchText }) => {
               </DeliveryOptionsFeaturesText>
             </DeliveryOptionsFeaturesContainer>
           </DeliveryOptionContainer>
+          <BestOffersContainer>
+            <BestOffersHeading>
+              <strong>BEST OFFERS</strong>
+              <i class="bi bi-tag" style={{ marginLeft: "8px" }}></i>
+            </BestOffersHeading>
+            <BestOffersHeading>
+              <strong>BEST PRICE:</strong>{" "}
+              <strong style={{ color: "#ff905a" }}>Rs. 1108</strong>
+              <ul
+                style={{
+                  fontSize: "15px",
+                  marginTop: "10px",
+                  fontWeight: "400",
+                }}
+              >
+                <li>Applicable on: Orders above Rs. 3999</li>
+                <li>
+                  Coupon code: <strong>EXTRA500</strong>
+                </li>
+                <li>
+                  Coupon Discount: 13% off upto Rs. 500 (check cart for final
+                  savings)
+                </li>
+              </ul>
+              <ViewProducts>View Eligible Products</ViewProducts>
+            </BestOffersHeading>
+            <BestOffersHeading>
+              <strong>
+                10% Instant Discount on ICICI Bank Credit and Debit Cards
+              </strong>{" "}
+              <ul
+                style={{
+                  fontSize: "15px",
+                  marginTop: "10px",
+                  fontWeight: "400",
+                }}
+              >
+                <li>Min spend Rs 3,000; Max discount Rs 1,000. TCA</li>
+              </ul>
+              <ViewProducts>View Eligible Products</ViewProducts>
+            </BestOffersHeading>
+            <BestOffersHeading>
+              <strong>10% Instant Discount on Axis Bank Credit Cards</strong>{" "}
+              <ul
+                style={{
+                  fontSize: "15px",
+                  marginTop: "10px",
+                  fontWeight: "400",
+                }}
+              >
+                <li>in spend Rs 2,500; Max discount Rs 1,000. TCA</li>
+              </ul>
+              <ViewProducts>View Eligible Products</ViewProducts>
+            </BestOffersHeading>
+            <BestOffersHeading>
+              <strong>Flat Rs 150 Cashback on Paytm Wallet.</strong>{" "}
+              <ul
+                style={{
+                  fontSize: "15px",
+                  marginTop: "10px",
+                  fontWeight: "400",
+                }}
+              >
+                <li>Min spend Rs 1,500 TCA</li>
+              </ul>
+              <ViewProducts>View Eligible Products</ViewProducts>
+            </BestOffersHeading>
+            <BestOffersHeading>
+              <strong>Get upto Rs 500 Cashback on ZestMoney.</strong>{" "}
+              <ul
+                style={{
+                  fontSize: "15px",
+                  marginTop: "10px",
+                  fontWeight: "400",
+                }}
+              >
+                <li>Shop with 0% Interest* EMIs</li>
+              </ul>
+              <ViewProducts>View Eligible Products</ViewProducts>
+            </BestOffersHeading>
+            <BestOffersHeading>
+              <strong>10% Instant Discount + 5% Unlimited Cashback.</strong>{" "}
+              <ul
+                style={{
+                  fontSize: "15px",
+                  marginTop: "10px",
+                  fontWeight: "400",
+                }}
+              >
+                <li>Shop with Flipkart Axis Bank Credit Card</li>
+              </ul>
+              <ViewProducts>View Eligible Products</ViewProducts>
+            </BestOffersHeading>
+            <BestOffersHeading>
+              <strong>EMI option available</strong>{" "}
+              <ul
+                style={{
+                  fontSize: "15px",
+                  marginTop: "10px",
+                  fontWeight: "400",
+                }}
+              >
+                <li>EMI starting from Rs.60/month</li>
+              </ul>
+              <ViewProducts>View Plan</ViewProducts>
+            </BestOffersHeading>
+          </BestOffersContainer>
+          <hr />
         </div>
       </ProductContainer>
     </>
