@@ -1,5 +1,13 @@
-const FilterByGender = () => {
+import { useEffect, useState } from "react";
+
+const FilterByGender = ({ setFilters, setSidebarFiltersApplied }) => {
   const genderItems = ["Men", "Women", "Boys", "Girls"];
+  const [gender, setGender] = useState("");
+
+  useEffect(() => {
+    setFilters((prev) => ({ ...prev, gender }));
+  }, [gender, setFilters, setSidebarFiltersApplied]);
+
   return (
     <div
       style={{
@@ -26,12 +34,17 @@ const FilterByGender = () => {
             <div>
               <input
                 type="radio"
-                id="men"
+                id="gender"
                 name="genderFilter"
+                value={items.toLowerCase()}
+                onChange={(e) => {
+                  setGender(e.target.value);
+                  setSidebarFiltersApplied(true);
+                }}
                 style={{ marginTop: "6px" }}
               />
               <label
-                for="men"
+                for="gender"
                 style={{
                   marginLeft: "10px",
                   fontWeight: "700",

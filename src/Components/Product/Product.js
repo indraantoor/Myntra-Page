@@ -20,14 +20,13 @@ const ItemsContainer = styled.div`
 const ItemContainer = styled.div``;
 
 const ImgContainer = styled.div`
-  background-color: red;
+  background-color: #ff3e6c;
   height: 95%;
   cursor: zoom-in;
 `;
 
 const ProductInfoContainer = styled.div`
   margin-top: 20px;
-  background-color: white;
 `;
 
 const BrandName = styled.h1`
@@ -183,6 +182,57 @@ const SellerCount = styled.div`
   cursor: pointer;
 `;
 
+const DeliveryOptionContainer = styled.div``;
+
+const DeliveryHeading = styled.h1`
+  color: #282c3f;
+  font-size: 16px;
+  font-weight: 500;
+`;
+
+const Pincode = styled.div`
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  width: 55%;
+  border: 1px solid #d4d5d9;
+  border-radius: 4px;
+  color: #282c3f;
+`;
+
+const PincodeInput = styled.input`
+  padding: 5px;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const PincodeButton = styled.button`
+  margin-left: 10px;
+  border: none;
+  background: transparent;
+`;
+
+const PincodeText = styled.div`
+  font-size: 13px;
+  color: #282c3f;
+  margin-top: 5px;
+`;
+
+const DeliveryOptionsFeaturesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+`;
+
+const DeliveryOptionsFeaturesText = styled.div`
+  margin-top: 5px;
+  color: #282c3f;
+  font-size: 16px;
+`;
+
 const Product = () => {
   return (
     <ProductContainer>
@@ -194,8 +244,7 @@ const Product = () => {
                 style={{
                   width: "100%",
                   height: "100%",
-                  backgroundColor: "yellow",
-                  backgroundImage: `url("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                  backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
                   backgroundSize: "cover",
                 }}
               ></div>
@@ -207,8 +256,7 @@ const Product = () => {
                 style={{
                   width: "100%",
                   height: "100%",
-                  backgroundColor: "yellow",
-                  backgroundImage: `url("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                  backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737697-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-2.jpg")`,
                   backgroundSize: "cover",
                 }}
               ></div>
@@ -220,8 +268,7 @@ const Product = () => {
                 style={{
                   width: "100%",
                   height: "100%",
-                  backgroundColor: "yellow",
-                  backgroundImage: `url("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                  backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737673-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-3.jpg")`,
                   backgroundSize: "cover",
                 }}
               ></div>
@@ -233,8 +280,7 @@ const Product = () => {
                 style={{
                   width: "100%",
                   height: "100%",
-                  backgroundColor: "yellow",
-                  backgroundImage: `url("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                  backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737656-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-4.jpg")`,
                   backgroundSize: "cover",
                 }}
               ></div>
@@ -246,8 +292,7 @@ const Product = () => {
                 style={{
                   width: "100%",
                   height: "100%",
-                  backgroundColor: "yellow",
-                  backgroundImage: `url("https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/1364628/2016/8/31/11472636737718-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-1.jpg")`,
+                  backgroundImage: `url("https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/1364628/2016/8/31/11472636737616-Roadster-Men-Blue-Regular-Fit-Printed-Casual-Shirt-6121472636737160-5.jpg")`,
                   backgroundSize: "cover",
                 }}
               ></div>
@@ -284,7 +329,9 @@ const Product = () => {
                 <strong>SELECT SIZE</strong>
               </SizeHeading>
               <SizeChartHeading>
-                <strong>SIZE CHART</strong>
+                <strong>
+                  SIZE CHART <i class="bi bi-chevron-compact-right"></i>
+                </strong>
               </SizeChartHeading>
             </SizeHeadingContainer>
             <SizeButtonContainer>
@@ -325,6 +372,35 @@ const Product = () => {
           </SellerName>
         </SellerInfoContainer>
         <hr />
+        <DeliveryOptionContainer>
+          <DeliveryHeading>DELIVERY OPTIONS</DeliveryHeading>
+          <Pincode>
+            <PincodeInput
+              type="text"
+              placeholder="Enter a PIN code"
+              maxLength={6}
+            ></PincodeInput>
+            <PincodeButton disabled>Check</PincodeButton>
+          </Pincode>
+          <PincodeText>
+            Please enter PIN code to check delivery time & Pay on Delivery
+            Availability
+          </PincodeText>
+          <DeliveryOptionsFeaturesContainer>
+            <DeliveryOptionsFeaturesText>
+              100% Original Products
+            </DeliveryOptionsFeaturesText>
+            <DeliveryOptionsFeaturesText>
+              Pay on delivery might be available
+            </DeliveryOptionsFeaturesText>
+            <DeliveryOptionsFeaturesText>
+              Easy 30 days returns and exchanges
+            </DeliveryOptionsFeaturesText>
+            <DeliveryOptionsFeaturesText>
+              Try & Buy might be available
+            </DeliveryOptionsFeaturesText>
+          </DeliveryOptionsFeaturesContainer>
+        </DeliveryOptionContainer>
       </div>
     </ProductContainer>
   );

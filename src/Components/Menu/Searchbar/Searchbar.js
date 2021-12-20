@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mobile } from "../../../responsive";
+import { useState, useEffect } from "react";
 
 const SearchContainer = styled.div`
   display: flex;
@@ -24,9 +25,20 @@ const Input = styled.input`
   font-size: 14px;
   padding: 2px;
   ${mobile({ width: "50px" })}
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Searchbar = ({ placeholder }) => {
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("search", search);
+    console.log(localStorage.getItem("search"));
+  }, [search]);
+
   return (
     <SearchContainer>
       <SearchIconContainer>
@@ -37,6 +49,7 @@ const Searchbar = ({ placeholder }) => {
       </SearchIconContainer>
       <Input
         placeholder={placeholder || "Search for products, brands and more"}
+        onChange={(e) => setSearch(e.target.value)}
       />
     </SearchContainer>
   );

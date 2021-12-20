@@ -26,14 +26,14 @@ const Right = styled.div`
   border-bottom: 1px solid #e9e9ed;
 `;
 
-const FilterHeader = () => {
+const FilterHeader = ({ setSortedBy }) => {
   return (
     <FilterHeaderContainer>
       <SidebarContainer>
         <SidebarHeading>FILTERS</SidebarHeading>
       </SidebarContainer>
       <Right>
-        <FilterDropdown />
+        <FilterDropdown setSortedBy={setSortedBy} />
       </Right>
     </FilterHeaderContainer>
   );

@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { items } from "../../data";
+import { useEffect, useState } from "react";
 
 const ItemsContainer = styled.div`
   display: grid;
@@ -69,105 +71,99 @@ const Discount = styled.h1`
   color: #ff3f6c;
 `;
 
-const Items = () => {
+const Items = ({ sidebarFilters, sidebarFiltersApplied, sort }) => {
+  const [products, setProducts] = useState([]);
+  const [filterProducts, setFilterProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(items);
+  }, [products]);
+
+  useEffect(() => {
+    if (sidebarFiltersApplied) {
+      let filteredItems = products.filter((arrayItem) => {
+        return arrayItem.gender === sidebarFilters.gender;
+      });
+
+      if (sidebarFilters.discount > 0) {
+        filteredItems = products.filter((arrayItem) => {
+          return arrayItem.discount >= sidebarFilters.discount;
+        });
+      }
+      setFilterProducts(filteredItems);
+      console.log(filteredItems);
+    }
+  }, [products, sidebarFiltersApplied, sidebarFilters]);
+
+  useEffect(() => {
+    if (sidebarFiltersApplied) {
+      if (sort === "desc") {
+        setFilterProducts((prev) =>
+          [...prev].sort((a, b) => b.sellingPrice - a.sellingPrice)
+        );
+      } else if (sort === "asc") {
+        setFilterProducts((prev) =>
+          [...prev].sort((a, b) => a.sellingPrice - b.sellingPrice)
+        );
+      } else if (sort === "discount") {
+        setFilterProducts((prev) =>
+          [...prev].sort((a, b) => a.discount - b.discount)
+        );
+      } else {
+      }
+    }
+  }, [sort, sidebarFiltersApplied]);
+
+  useEffect(() => {
+    if (!sidebarFiltersApplied) {
+      if (sort === "desc") {
+        setProducts((prev) =>
+          [...prev].sort((a, b) => b.sellingPrice - a.sellingPrice)
+        );
+      } else if (sort === "asc") {
+        setProducts((prev) =>
+          [...prev].sort((a, b) => a.sellingPrice - b.sellingPrice)
+        );
+      } else if (sort === "discount") {
+        setProducts((prev) =>
+          [...prev].sort((a, b) => a.discount - b.discount)
+        );
+      } else {
+      }
+    }
+  }, [products, sort, sidebarFiltersApplied]);
+
   return (
     <ItemsContainer>
-      <ItemContainer>
-        <ImgContainer>Hello</ImgContainer>
-        <InformationContainer>
-          <BrandName>HERE&NOW</BrandName>
-          <ItemInfo>Checked Straight Shirts</ItemInfo>
-          <PricingInfoContainer>
-            <SellingPrice>Rs. 699</SellingPrice>
-            <OriginalPrice>Rs. 1999</OriginalPrice>
-            <Discount>( 65% OFF )</Discount>
-          </PricingInfoContainer>
-        </InformationContainer>
-      </ItemContainer>
-      <ItemContainer>
-        <ImgContainer>Hello</ImgContainer>
-        <InformationContainer>
-          <BrandName>HERE&NOW</BrandName>
-          <ItemInfo>Checked Straight Shirts</ItemInfo>
-          <PricingInfoContainer>
-            <SellingPrice>Rs. 699</SellingPrice>
-            <OriginalPrice>Rs. 1999</OriginalPrice>
-            <Discount>( 65% OFF )</Discount>
-          </PricingInfoContainer>
-        </InformationContainer>
-      </ItemContainer>
-      <ItemContainer>
-        <ImgContainer>Hello</ImgContainer>
-        <InformationContainer>
-          <BrandName>HERE&NOW</BrandName>
-          <ItemInfo>Checked Straight Shirts</ItemInfo>
-          <PricingInfoContainer>
-            <SellingPrice>Rs. 699</SellingPrice>
-            <OriginalPrice>Rs. 1999</OriginalPrice>
-            <Discount>( 65% OFF )</Discount>
-          </PricingInfoContainer>
-        </InformationContainer>
-      </ItemContainer>
-      <ItemContainer>
-        <ImgContainer>Hello</ImgContainer>
-        <InformationContainer>
-          <BrandName>HERE&NOW</BrandName>
-          <ItemInfo>Checked Straight Shirts</ItemInfo>
-          <PricingInfoContainer>
-            <SellingPrice>Rs. 699</SellingPrice>
-            <OriginalPrice>Rs. 1999</OriginalPrice>
-            <Discount>( 65% OFF )</Discount>
-          </PricingInfoContainer>
-        </InformationContainer>
-      </ItemContainer>
-      <ItemContainer>
-        <ImgContainer>Hello</ImgContainer>
-        <InformationContainer>
-          <BrandName>HERE&NOW</BrandName>
-          <ItemInfo>Checked Straight Shirts</ItemInfo>
-          <PricingInfoContainer>
-            <SellingPrice>Rs. 699</SellingPrice>
-            <OriginalPrice>Rs. 1999</OriginalPrice>
-            <Discount>( 65% OFF )</Discount>
-          </PricingInfoContainer>
-        </InformationContainer>
-      </ItemContainer>
-      <ItemContainer>
-        <ImgContainer>Hello</ImgContainer>
-        <InformationContainer>
-          <BrandName>HERE&NOW</BrandName>
-          <ItemInfo>Checked Straight Shirts</ItemInfo>
-          <PricingInfoContainer>
-            <SellingPrice>Rs. 699</SellingPrice>
-            <OriginalPrice>Rs. 1999</OriginalPrice>
-            <Discount>( 65% OFF )</Discount>
-          </PricingInfoContainer>
-        </InformationContainer>
-      </ItemContainer>
-      <ItemContainer>
-        <ImgContainer>Hello</ImgContainer>
-        <InformationContainer>
-          <BrandName>HERE&NOW</BrandName>
-          <ItemInfo>Checked Straight Shirts</ItemInfo>
-          <PricingInfoContainer>
-            <SellingPrice>Rs. 699</SellingPrice>
-            <OriginalPrice>Rs. 1999</OriginalPrice>
-            <Discount>( 65% OFF )</Discount>
-          </PricingInfoContainer>
-        </InformationContainer>
-      </ItemContainer>
-      <ItemContainer>
-        <ImgContainer>Hello</ImgContainer>
-        <InformationContainer>
-          <BrandName>HERE&NOW</BrandName>
-          <ItemInfo>Checked Straight Shirts</ItemInfo>
-          <PricingInfoContainer>
-            <SellingPrice>Rs. 699</SellingPrice>
-            <OriginalPrice>Rs. 1999</OriginalPrice>
-            <Discount>( 65% OFF )</Discount>
-          </PricingInfoContainer>
-        </InformationContainer>
-      </ItemContainer>
+      {sidebarFiltersApplied
+        ? filterProducts.map((item) => (
+            <ItemContainer>
+              <ImgContainer>Hello</ImgContainer>
+              <InformationContainer>
+                <BrandName>{item.brandName}</BrandName>
+                <ItemInfo>{item.itemInfo}</ItemInfo>
+                <PricingInfoContainer>
+                  <SellingPrice>Rs. {item.sellingPrice}</SellingPrice>
+                  <OriginalPrice>Rs. {item.originalPrice}</OriginalPrice>
+                  <Discount>( {item.discount}% OFF )</Discount>
+                </PricingInfoContainer>
+              </InformationContainer>
+            </ItemContainer>
+          ))
+        : products.map((item) => (
+            <ItemContainer>
+              <ImgContainer>Hello</ImgContainer>
+              <InformationContainer>
+                <BrandName>{item.brandName}</BrandName>
+                <ItemInfo>{item.itemInfo}</ItemInfo>
+                <PricingInfoContainer>
+                  <SellingPrice>Rs. {item.sellingPrice}</SellingPrice>
+                  <OriginalPrice>Rs. {item.originalPrice}</OriginalPrice>
+                  <Discount>( {item.discount}% OFF )</Discount>
+                </PricingInfoContainer>
+              </InformationContainer>
+            </ItemContainer>
+          ))}
     </ItemsContainer>
   );
 };

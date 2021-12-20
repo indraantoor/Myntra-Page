@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { mobile } from "../../../responsive";
 import CharacteristicsDropdown from "./CharacteristicsDropdown/CharacteristicsDropdown";
+import { useEffect, useState } from "react";
 
 const FilterContainer = styled.div`
   display: flex;
@@ -23,6 +24,9 @@ const Select = styled.select`
   color: #282c3f;
   border-radius: 2px;
   padding-left: 10px;
+  &:focus {
+    outline: none;
+  }
   ${mobile({ margin: "10px 0px" })}
 `;
 
@@ -39,14 +43,16 @@ const DropdownContainer = styled.div`
   border: 1px solid #d4d5d9;
 `;
 
-const FilterDropdown = () => {
+const FilterDropdown = ({ setSortedBy }) => {
+  const [sortBy, setSortBy] = useState("");
+
   const sortFilterItems = [
     { label: "Sort By: Recommended", value: "recommended" },
     { label: "What's New", value: "new" },
     { label: "Popularity", value: "popular" },
-    { label: "Better Discount", value: "discount" },
-    { label: "Price: High To Low", value: "desc" },
-    { label: "Price: Low To High", value: "asc" },
+    { label: "Better Discount (THIS WORKS)", value: "discount" },
+    { label: "Price: High To Low (THIS WORKS)", value: "desc" },
+    { label: "Price: Low To High (THIS WORKS)", value: "asc" },
     { label: "Customer Rating", value: "rating" },
   ];
 
@@ -60,6 +66,10 @@ const FilterDropdown = () => {
     "Fabric 2",
   ];
 
+  useEffect(() => {
+    setSortedBy(sortBy);
+  });
+
   return (
     <FilterContainer>
       <div>
@@ -67,9 +77,11 @@ const FilterDropdown = () => {
       </div>
       <Filter>
         <DropdownContainer>
-          <Select>
+          <Select onChange={(e) => setSortBy(e.target.value)}>
             {sortFilterItems.map((filterItem) => (
-              <Option value={filterItem.value}>{filterItem.label}</Option>
+              <Option value={filterItem.value} id={filterItem.value}>
+                {filterItem.label}
+              </Option>
             ))}
           </Select>
         </DropdownContainer>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 const SidebarHeading = styled.h1`
   font-weight: 700;
@@ -12,17 +13,23 @@ const SidebarContainer = styled.aside`
   margin-top: 20px;
 `;
 
-const FilterByDiscount = () => {
+const FilterByDiscount = ({ setFilters, setSidebarFiltersApplied }) => {
   const brandItems = [
-    "10% and above",
-    "20% and above",
-    "30% and above",
-    "40% and above",
-    "50% and above",
-    "60% and above",
-    "70% and above",
-    "80% and above",
+    { label: "10% and above", value: 10 },
+    { label: "20% and above", value: 20 },
+    { label: "30% and above", value: 30 },
+    { label: "40% and above", value: 40 },
+    { label: "50% and above", value: 50 },
+    { label: "60% and above", value: 60 },
+    { label: "70% and above", value: 70 },
+    { label: "80% and above", value: 80 },
   ];
+  const [discount, setDiscount] = useState(0);
+
+  useEffect(() => {
+    setFilters((prev) => ({ ...prev, discount }));
+  }, [discount, setFilters]);
+
   return (
     <div
       style={{
@@ -58,12 +65,17 @@ const FilterByDiscount = () => {
             <div>
               <input
                 type="radio"
-                id="men"
-                name="genderFilter"
+                id="discount"
+                name="discountFilter"
+                value={item.value}
+                onChange={(e) => {
+                  setDiscount(Number(e.target.value));
+                  setSidebarFiltersApplied(true);
+                }}
                 style={{ marginTop: "5px" }}
               />
               <label
-                for="men"
+                for="discount"
                 style={{
                   marginLeft: "10px",
                   fontWeight: "300",
@@ -71,7 +83,7 @@ const FilterByDiscount = () => {
                   color: "#282c3f",
                 }}
               >
-                <span>{item}</span>
+                <span>{item.label}</span>
               </label>
             </div>
           ))}
