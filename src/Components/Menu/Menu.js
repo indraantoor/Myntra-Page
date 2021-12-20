@@ -46,7 +46,7 @@ const MenuItem = styled.div`
   margin-left: 30px;
   font-weight: 700;
   color: #282c3f;
-  ${mobile({ fontSize: "12px", marginLeft: "10px" })}
+  ${mobile({ display: "none" })}
 `;
 
 const Menu = ({ setSearchText }) => {

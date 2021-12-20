@@ -4,12 +4,14 @@ import Modal from "react-modal";
 import { useEffect, useState } from "react";
 import Menu from "../Menu/Menu";
 import Breadcrum from "../Breadcrum/Breadcrum";
+import { mobile } from "../../responsive";
 
 const ProductContainer = styled.div`
   display: grid;
   grid-template-columns: 60% 40%;
   margin-right: 40px;
   margin-left: 40px;
+  ${mobile({ display: "flex", flexDirection: "column" })}
 `;
 
 const ItemsContainer = styled.div`

@@ -24,7 +24,7 @@ const Input = styled.input`
   color: #696e79;
   font-size: 14px;
   padding: 2px;
-  ${mobile({ width: "50px" })}
+  ${mobile({ width: "100%", fontSize: "12px", padding: "10px" })}
 
   &:focus {
     outline: none;
